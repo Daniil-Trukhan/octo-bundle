@@ -1,0 +1,35 @@
+{
+  "name": "wildan99/octo-bundle",
+  "description": "Octo bundle",
+  "type": "symfony-bundle",
+  "require": {
+    "php": ">=8.2",
+    "symfony/framework-bundle": "^6.2",
+    "symfony/http-client": "6.2.*",
+    "doctrine/annotations": "2.0.*",
+    "doctrine/doctrine-bundle": "2.8.*",
+    "doctrine/doctrine-migrations-bundle": "3.2.*",
+    "doctrine/orm": "2.14.*",
+    "ramsey/collection": "*"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+  "autoload": {
+    "psr-4": {
+      "Daniil\\OctoBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Daniil\\OctoBundle\\Tests\\": "tests/"
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Daniil Trukhan",
+      "email": "truh.daniil@gmail.com"
+    }
+  ]
+}

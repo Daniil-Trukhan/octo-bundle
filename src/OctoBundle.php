@@ -1,0 +1,33 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Daniil\OctoBundle;
+
+use Daniil\OctoBundle\DependencyInjection\OctoException;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+/**
+ * Class OctoBundle
+ *
+ * @package Daniil\OctoBundle
+ */
+final class OctoBundle extends Bundle
+{
+    /**
+     * Overridden to allow for the custom extension alias.
+     */
+    public function getContainerExtension(): ?ExtensionInterface
+    {
+        if (null === $this->extension) {
+            $this->extension = new OctoException();
+        }
+        return $this->extension;
+    }
+
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
+}
