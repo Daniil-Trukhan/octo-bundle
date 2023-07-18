@@ -7,9 +7,9 @@
     "symfony/framework-bundle": "^6.3",
     "symfony/http-client": "^6.3",
     "doctrine/annotations": "2.0.*",
-    "doctrine/doctrine-bundle": "2.8.*",
-    "doctrine/doctrine-migrations-bundle": "3.2.*",
-    "doctrine/orm": "2.14.*",
+    "doctrine/doctrine-bundle": "2.10.*",
+    "doctrine/doctrine-migrations-bundle": "3.*",
+    "doctrine/orm": "2.1.*",
     "ramsey/collection": "*"
   },
   "require-dev": {
