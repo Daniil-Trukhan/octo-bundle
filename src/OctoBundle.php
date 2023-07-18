@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  *
  * @package Daniil\OctoBundle
  */
-final class DaniilOctoBundle extends Bundle
+final class OctoBundle extends Bundle
 {
     /**
      * Overridden to allow for the custom extension alias.
