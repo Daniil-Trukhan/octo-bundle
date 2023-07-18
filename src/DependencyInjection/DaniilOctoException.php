@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
- * Class OctoException
+ * Class DaniilOctoException
  *
  * @package Daniil\OctoBundle\DependencyInjection
  */

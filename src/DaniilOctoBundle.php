@@ -9,11 +9,11 @@ use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class OctoBundle
+ * Class DaniilOctoBundle
  *
  * @package Daniil\OctoBundle
  */
-final class OctoBundle extends Bundle
+final class DaniilOctoBundle extends Bundle
 {
     /**
      * Overridden to allow for the custom extension alias.
