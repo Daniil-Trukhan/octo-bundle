@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Daniil\OctoBundle\DependencyInjection;
@@ -13,7 +14,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * @package Daniil\OctoBundle\DependencyInjection
  */
-final class OctoException extends Extension
+final class DaniilOctoException extends Extension
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
