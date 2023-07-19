@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Daniil\OctoBundle\Action\Prepare;
 
+use JsonSerializable;
+
 /**
  * Class UserData
  *
@@ -11,7 +13,7 @@ namespace Daniil\OctoBundle\Action\Prepare;
  *
  * @package Daniil\OctoBundle\Action\Prepare
  */
-final readonly class UserData implements \JsonSerializable
+final readonly class UserData implements JsonSerializable
 {
     public function __construct(private string $userId, private string $phone, private string $email)
     {
@@ -20,9 +22,9 @@ final readonly class UserData implements \JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            "user_id" => $this->userId,
-            "phone" => $this->phone,
-            "email" => $this->email
+            'user_id' => $this->userId,
+            'phone' => $this->phone,
+            'email' => $this->email
         ];
     }
 }

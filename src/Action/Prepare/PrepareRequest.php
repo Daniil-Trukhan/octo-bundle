@@ -11,21 +11,20 @@ use Daniil\OctoBundle\Enum\Language;
  *
  * @package Daniil\OctoBundle\Request
  */
-final class PrepareRequest
+final readonly class PrepareRequest
 {
 
-
     public function __construct(
-        private readonly string                   $shopTransactionId,
-        private readonly float                    $sum,
-        private readonly Currency                 $currency,
-        private readonly string                   $description,
-        private readonly ?ProductCollection       $products = null,
-        private readonly ?PaymentMethodCollection $paymentMethods = null,
-        private readonly ?UserData                $userData = null,
-        private readonly ?string                  $tag = null,
-        private readonly ?string                  $tspId = null,
-        private readonly ?Language                $language = null,
+        private string                   $shopTransactionId,
+        private float                    $sum,
+        private Currency                 $currency,
+        private string                   $description,
+        private ?ProductCollection       $products = null,
+        private ?PaymentMethodCollection $paymentMethods = null,
+        private ?UserData                $userData = null,
+        private ?string                  $tag = null,
+        private ?string                  $tspId = null,
+        private ?Language                $language = null,
     )
     {
     }
@@ -33,14 +32,12 @@ final class PrepareRequest
     public function toArray(): array
     {
         $result = [
-            "shop_transaction_id" => $this->shopTransactionId,
-            "init_time" => date('Y-m-d H:i:s'),
-            "total_sum" => $this->sum,
-            "currency" => $this->currency->value,
-            "description" => $this->description,
-            "return_url" => "http=>//merchant.site.uz/return_URL",
-            "notify_url" => "http=>//merchant.site.uz/send_me_status_URL",
-            "ttl" => 15
+            'shop_transaction_id' => $this->shopTransactionId,
+            'init_time' => date('Y-m-d H:i:s'),
+            'total_sum' => $this->sum,
+            'currency' => $this->currency->value,
+            'description' => $this->description,
+            'ttl' => 15
         ];
 
         if ($this->tspId) {
