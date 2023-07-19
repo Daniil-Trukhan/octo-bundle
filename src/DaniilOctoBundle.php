@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Daniil\OctoBundle;
 
-use Daniil\OctoBundle\DependencyInjection\DaniilOctoException;
+use Daniil\OctoBundle\DependencyInjection\DaniilOctoExtension;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -21,7 +21,7 @@ final class DaniilOctoBundle extends Bundle
     public function getContainerExtension(): ?ExtensionInterface
     {
         if (null === $this->extension) {
-            $this->extension = new DaniilOctoException();
+            $this->extension = new DaniilOctoExtension();
         }
         return $this->extension;
     }

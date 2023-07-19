@@ -10,11 +10,11 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
- * Class DaniilOctoException
+ * Class DaniilOctoExtension
  *
  * @package Daniil\OctoBundle\DependencyInjection
  */
-final class DaniilOctoException extends Extension
+final class DaniilOctoExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
