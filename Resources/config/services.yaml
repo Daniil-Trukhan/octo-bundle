@@ -1,0 +1,18 @@
+parameters:
+  octo:
+    shop_id: '%env(OCTO_SHOP_ID)%'
+    auto_capture: '%env(OCTO_AUTO_CAPTURE)%'
+    notify_url: '%env(OCTO_NOTIFY_URL)%'
+    return_url: '%env(OCTO_RETURN_URL)%'
+    secret: '%env(OCTO_SHOP_ID)%'
+    test: '%env(OCTO_TEST)%'
+
+services:
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  Daniil\OctoBundle\:
+    resource: '../../'
+    exclude:
+      - '../../DependencyInjection/'
