@@ -11,7 +11,7 @@ composer req wildan99/octo-bundle
 ### Add to config/bundles.php
 
 ```php
-Daniil\OctoBundle\DaniilOctoBundle::class => ['all' => true],
+Daniil\OctoBundle\OctoBundle::class => ['all' => true],
 ```
 
 ### Add next lines to your .env file
