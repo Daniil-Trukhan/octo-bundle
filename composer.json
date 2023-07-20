@@ -4,8 +4,8 @@
   "type": "symfony-bundle",
   "require": {
     "php": ">=8.2",
-    "symfony/framework-bundle": "^6.3",
-    "symfony/http-client": "^6.3",
+    "symfony/framework-bundle": "^6.2",
+    "symfony/http-client": "^6.2",
     "ramsey/collection": "*"
   },
   "require-dev": {
