@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Daniil\OctoBundle\Action\Notify;
+namespace Daniil\OctoBundle\Action\SetAccept;
 
 use Daniil\OctoBundle\Enum\AcceptStatus;
 
 /**
  * Class SetAcceptRequest
  *
- * @package Daniil\OctoBundle\Action\Notify
+ * @package Daniil\OctoBundle\Action\SetAccept
  */
 final readonly class SetAcceptRequest
 {

@@ -23,8 +23,9 @@ final class PrepareResponse
     private ?string $octoPaymentUuid;
     /**  Возвращенная покупателю сумма. */
     private ?string $refundedSum;
-    /**  Уникальный идентификатор транзакции на стороне магазина. */
+    /** Уникальный идентификатор транзакции на стороне магазина. */
     private ?string $shopTransactionId;
+    /** Статус данного платежа в системе Octo. */
     private Status $status;
     /**  Сумма по счету за вычетом комиссии Octo, доступная для возврата средств покупателю. */
     private ?string $transferSum;
@@ -37,8 +38,8 @@ final class PrepareResponse
         $this->octoPayUrl = $data->octo_pay_url;
         $this->error = Error::tryFrom($data->error);
         $this->errorMessage = $data->errorMessage;
-        $this->transferSum = $data->transfer_sum;
-        $this->refundedSum = $data->errorMessage;
+        $this->transferSum = property_exists($data, 'transfer_sum') ? $data->transfer_sum: null;
+        $this->refundedSum = property_exists($data, 'refunded_sum') ? $data->refunded_sum: null;
     }
 
     /**
@@ -104,5 +105,4 @@ final class PrepareResponse
     {
         return $this->transferSum;
     }
-
 }

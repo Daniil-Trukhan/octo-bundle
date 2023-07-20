@@ -1,11 +1,10 @@
 parameters:
-  octo:
-    shop_id: '%env(OCTO_SHOP_ID)%'
-    auto_capture: '%env(OCTO_AUTO_CAPTURE)%'
-    notify_url: '%env(OCTO_NOTIFY_URL)%'
-    return_url: '%env(OCTO_RETURN_URL)%'
-    secret: '%env(OCTO_SHOP_ID)%'
-    test: '%env(OCTO_TEST)%'
+    octo_shop_id: '%env(OCTO_SHOP_ID)%'
+    octo_auto_capture: '%env(OCTO_AUTO_CAPTURE)%'
+    octo_notify_url: '%env(OCTO_NOTIFY_URL)%'
+    octo_return_url: '%env(OCTO_RETURN_URL)%'
+    octo_secret: '%env(OCTO_SECRET)%'
+    octo_test: '%env(OCTO_TEST)%'
 
 services:
   _defaults:

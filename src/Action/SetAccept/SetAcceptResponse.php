@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Daniil\OctoBundle\Action\Notify;
+namespace Daniil\OctoBundle\Action\SetAccept;
 
 use Daniil\OctoBundle\Enum\PaymentError;
 use Daniil\OctoBundle\Enum\PaymentStatus;
@@ -10,7 +10,7 @@ use Daniil\OctoBundle\Enum\PaymentStatus;
 /**
  * Class SetAcceptResponse
  *
- * @package Daniil\OctoBundle\Action\Notify
+ * @package Daniil\OctoBundle\Action\SetAccept
  */
 final class SetAcceptResponse
 {

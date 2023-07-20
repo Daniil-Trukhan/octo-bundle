@@ -6,8 +6,8 @@ namespace Daniil\OctoBundle\Service;
 
 use Daniil\OctoBundle\Action\Fiscal\FiscalRequest;
 use Daniil\OctoBundle\Action\Fiscal\FiscalResponse;
-use Daniil\OctoBundle\Action\Notify\SetAcceptRequest;
-use Daniil\OctoBundle\Action\Notify\SetAcceptResponse;
+use Daniil\OctoBundle\Action\SetAccept\SetAcceptRequest;
+use Daniil\OctoBundle\Action\SetAccept\SetAcceptResponse;
 use Daniil\OctoBundle\Action\Prepare\PrepareRequest;
 use Daniil\OctoBundle\Action\Prepare\PrepareResponse;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -28,19 +28,19 @@ final class Client
 
     private bool $autoCapture;
     private string $notifyUrl;
-    private bool $octoSecret;
-    private bool $octoShopId;
+    private string $octoSecret;
+    private int $octoShopId;
     private string $returnUrl;
     private bool $test;
 
     public function __construct(private readonly HttpClientInterface $client, ParameterBagInterface $config)
     {
-        $this->test = (bool)$config->get('octo.test');
-        $this->octoShopId = $config->get('octo.shop_id');
-        $this->octoSecret = $config->get('octo.secret');
-        $this->autoCapture = (bool)$config->get('octo.auto_capture');
-        $this->returnUrl = $config->get('octo.return_url');
-        $this->notifyUrl = $config->get('octo.notify_url');
+        $this->test = (bool)$config->get('octo_test');
+        $this->octoShopId = (int)$config->get('octo_shop_id');
+        $this->octoSecret = $config->get('octo_secret');
+        $this->autoCapture = (bool)$config->get('octo_auto_capture');
+        $this->returnUrl = $config->get('octo_return_url');
+        $this->notifyUrl = $config->get('octo_notify_url');
     }
 
     /** Фискализация. */
@@ -50,7 +50,7 @@ final class Client
             'octo_shop_id' => $this->octoShopId,
             'octo_secret' => $this->octoSecret
         ]);
-        $response = $this->client->request('POST', self::FISCAL_URL, $requestData);
+        $response = $this->client->request('POST', self::FISCAL_URL, ['json' => $requestData]);
         if ($response->getStatusCode() !== Response::HTTP_OK) {
             throw new ClientException($response);
         }
@@ -68,7 +68,7 @@ final class Client
             'return_url' => $this->returnUrl,
             'notify_url' => $this->notifyUrl
         ]);
-        $response = $this->client->request('POST', self::PREPARE_URL, $requestData);
+        $response = $this->client->request('POST', self::PREPARE_URL, ['json' => $requestData]);
         if ($response->getStatusCode() !== Response::HTTP_OK) {
             throw new ClientException($response);
         }
@@ -82,7 +82,7 @@ final class Client
             'octo_shop_id' => $this->octoShopId,
             'octo_secret' => $this->octoSecret
         ]);
-        $response = $this->client->request('POST', self::SET_ACCEPT_URL, $requestData);
+        $response = $this->client->request('POST', self::SET_ACCEPT_URL, ['json' => $requestData]);
         if ($response->getStatusCode() !== Response::HTTP_OK) {
             throw new ClientException($response);
         }
