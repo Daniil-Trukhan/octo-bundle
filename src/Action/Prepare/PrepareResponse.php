@@ -32,10 +32,10 @@ final class PrepareResponse
 
     public function __construct(object $data)
     {
-        $this->status = property_exists($data, 'status')  ? Status::tryFrom($data->status): null;
-        $this->shopTransactionId = $data->shop_transaction_id;
-        $this->octoPaymentUuid = $data->octo_payment_UUID;
-        $this->octoPayUrl = $data->octo_pay_url;
+        $this->status = property_exists($data, 'status') ? Status::tryFrom($data->status) : null;
+        $this->shopTransactionId = property_exists($data, 'shop_transaction_id') ? $data->shop_transaction_id : null;
+        $this->octoPaymentUuid = property_exists($data, 'octo_payment_UUID') ? $data->octo_payment_UUID : null;
+        $this->octoPayUrl = property_exists($data, 'octo_pay_url') ? $data->octo_pay_url : null;
         $this->error = Error::tryFrom($data->error);
         $this->errorMessage = property_exists($data, 'errorMessage') ? $data->errorMessage : null;
         $this->transferSum = property_exists($data, 'transfer_sum') ? $data->transfer_sum : null;
