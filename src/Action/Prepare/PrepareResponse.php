@@ -26,13 +26,13 @@ final class PrepareResponse
     /** Уникальный идентификатор транзакции на стороне магазина. */
     private ?string $shopTransactionId;
     /** Статус данного платежа в системе Octo. */
-    private Status $status;
+    private ?Status $status;
     /**  Сумма по счету за вычетом комиссии Octo, доступная для возврата средств покупателю. */
     private ?string $transferSum;
 
     public function __construct(object $data)
     {
-        $this->status = Status::tryFrom($data->status);
+        $this->status = property_exists($data, 'status')  ? Status::tryFrom($data->status): null;
         $this->shopTransactionId = $data->shop_transaction_id;
         $this->octoPaymentUuid = $data->octo_payment_UUID;
         $this->octoPayUrl = $data->octo_pay_url;
