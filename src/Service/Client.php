@@ -43,7 +43,10 @@ final class Client
         $this->notifyUrl = $config->get('octo_notify_url');
     }
 
-    /** Фискализация. */
+    /**
+     * Фискализация.
+     * @throws ClientException
+     */
     public function fiscal(FiscalRequest $request): FiscalResponse
     {
         $requestData = array_merge($request->toArray(), [
@@ -57,7 +60,10 @@ final class Client
         return new FiscalResponse(json_decode($response->getContent()));
     }
 
-    /** Формирование корзины и создание платежа. */
+    /**
+     * Формирование корзины и создание платежа.
+     * @throws ClientException
+     */
     public function prepare(PrepareRequest $request): PrepareResponse
     {
         $requestData = array_merge($request->toArray(), [
@@ -75,7 +81,10 @@ final class Client
         return new PrepareResponse(json_decode($response->getContent()));
     }
 
-    /** Подтверждение или отмена платежа. */
+    /**
+     * Подтверждение или отмена платежа.
+     * @throws ClientException
+     */
     public function setAccept(SetAcceptRequest $request): SetAcceptResponse
     {
         $requestData = array_merge($request->toArray(), [
