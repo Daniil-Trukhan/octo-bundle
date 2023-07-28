@@ -30,7 +30,6 @@ final class Client
     private string $notifyUrl;
     private string $octoSecret;
     private int $octoShopId;
-    private string $returnUrl;
     private bool $test;
 
     public function __construct(private readonly HttpClientInterface $client, ParameterBagInterface $config)
@@ -39,7 +38,6 @@ final class Client
         $this->octoShopId = (int)$config->get('octo_shop_id');
         $this->octoSecret = $config->get('octo_secret');
         $this->autoCapture = (bool)$config->get('octo_auto_capture');
-        $this->returnUrl = $config->get('octo_return_url');
         $this->notifyUrl = $config->get('octo_notify_url');
     }
 
@@ -71,7 +69,6 @@ final class Client
             'octo_shop_id' => $this->octoShopId,
             'auto_capture' => $this->autoCapture,
             'octo_secret' => $this->octoSecret,
-            'return_url' => $this->returnUrl,
             'notify_url' => $this->notifyUrl
         ]);
         $response = $this->client->request('POST', self::PREPARE_URL, ['json' => $requestData]);

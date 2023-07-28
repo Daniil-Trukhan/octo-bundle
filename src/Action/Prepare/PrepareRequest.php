@@ -23,6 +23,7 @@ final readonly class PrepareRequest
         private ?PaymentMethodCollection $paymentMethods = null,
         private ?UserData                $userData = null,
         private ?string                  $tag = null,
+        private ?string                  $returnUrl = null,
         private ?string                  $tspId = null,
         private ?Language                $language = null,
     )
@@ -42,6 +43,10 @@ final readonly class PrepareRequest
 
         if ($this->tspId) {
             $result['tsp_id'] = $this->tspId;
+        }
+
+        if ($this->returnUrl) {
+            $result['return_url'] = $this->returnUrl;
         }
 
         if ($this->products) {
