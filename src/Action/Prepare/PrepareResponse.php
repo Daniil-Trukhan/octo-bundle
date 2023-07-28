@@ -22,13 +22,13 @@ final class PrepareResponse
     /**  Уникальный идентификатор транзакции в ПС Octo. */
     private ?string $octoPaymentUuid;
     /**  Возвращенная покупателю сумма. */
-    private ?string $refundedSum;
+    private ?float $refundedSum;
     /** Уникальный идентификатор транзакции на стороне магазина. */
     private ?string $shopTransactionId;
     /** Статус данного платежа в системе Octo. */
     private ?Status $status;
     /**  Сумма по счету за вычетом комиссии Octo, доступная для возврата средств покупателю. */
-    private ?string $transferSum;
+    private ?float $transferSum;
 
     public function __construct(object $data)
     {
